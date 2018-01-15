@@ -10,7 +10,7 @@ export class AppComponent {
   todos: Array<any> = [];
 
   get unCompleteCount() {
-    return this.todos.filter((todo) => !todo.done).length;
+    return this.todos.filter(todo => !todo.done).length;
   }
 
   addItem() {
@@ -21,6 +21,10 @@ export class AppComponent {
   }
 
   removeItem(item: any) {
-    this.todos = this.todos.filter(todo => item !== todo) ;
+    this.todos = this.todos.filter(todo => item !== todo);
+  }
+
+  clearCompleted() {
+    this.todos = this.todos.filter(todo => !todo.done);
   }
 }
