@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   keyword: string;
   todos: Array<any> = [];
+
+  get unCompleteCount() {
+    return this.todos.filter((todo) => !todo.done).length;
+  }
+
   addItem() {
     if (this.keyword) {
       this.todos = [...this.todos, { todo: this.keyword, done: false }];
@@ -16,6 +21,6 @@ export class AppComponent {
   }
 
   removeItem(item: any) {
-    this.todos = this.todos.filter(todo => item !== todo);
+    this.todos = this.todos.filter(todo => item !== todo) ;
   }
 }
