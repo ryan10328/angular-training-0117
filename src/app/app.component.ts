@@ -6,11 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isChecked = false;
   keyword: string;
   todos: Array<any> = [];
 
   get unCompleteCount() {
     return this.todos.filter(todo => !todo.done).length;
+  }
+
+  get isCheckAll() {
+    return (
+      this.todos.filter(item => item.done).length + 1 === this.todos.length
+    );
   }
 
   addItem() {
@@ -26,5 +33,27 @@ export class AppComponent {
 
   clearCompleted() {
     this.todos = this.todos.filter(todo => !todo.done);
+  }
+
+  checkAll() {
+    if (this.isChecked) {
+      this.todos.forEach(item => {
+        if (!item.done) {
+          item.done = !item.done;
+        }
+      });
+    } else {
+      this.todos.forEach(item => {
+        item.done = !item.done;
+      });
+    }
+  }
+
+  checkItem() {
+    if (this.isCheckAll) {
+      this.isChecked = true;
+    } else {
+      this.isChecked = false;
+    }
   }
 }
