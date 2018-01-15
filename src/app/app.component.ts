@@ -9,6 +9,7 @@ export class AppComponent {
   isChecked = false;
   keyword: string;
   todos: Array<any> = [];
+  selectedType = 'all';
 
   get unCompleteCount() {
     return this.todos.filter(todo => !todo.done).length;
@@ -55,5 +56,9 @@ export class AppComponent {
     } else {
       this.isChecked = false;
     }
+  }
+
+  selectType(type: string) {
+    this.selectedType = type;
   }
 }
