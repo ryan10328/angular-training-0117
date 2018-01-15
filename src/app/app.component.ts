@@ -14,4 +14,8 @@ export class AppComponent {
     }
     this.keyword = '';
   }
+
+  removeItem(item: any) {
+    this.todos = this.todos.filter(todo => item !== todo);
+  }
 }
