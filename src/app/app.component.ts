@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  keyword: string;
+  todos: Array<any> = [];
+  addItem() {
+    if (this.keyword) {
+      this.todos = [...this.todos, { todo: this.keyword, done: false }];
+    }
+    this.keyword = '';
+  }
 }
