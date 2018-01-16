@@ -37,17 +37,17 @@ export class AppComponent {
   }
 
   checkAll() {
-    if (this.isChecked) {
-      this.todos.forEach(item => {
+    this.todos.forEach(item => {
+      if (this.isChecked) {
         if (!item.done) {
-          item.done = !item.done;
+          item.done = true;
         }
-      });
-    } else {
-      this.todos.forEach(item => {
-        item.done = !item.done;
-      });
-    }
+      } else {
+        if (item.done) {
+          item.done = false;
+        }
+      }
+    });
   }
 
   checkItem() {
