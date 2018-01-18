@@ -38,15 +38,7 @@ export class AppComponent {
 
   checkAll() {
     this.todos.forEach(item => {
-      if (this.isChecked) {
-        if (!item.done) {
-          item.done = true;
-        }
-      } else {
-        if (item.done) {
-          item.done = false;
-        }
-      }
+      item.done = this.isChecked;
     });
   }
 
